@@ -1,0 +1,25 @@
+<template>
+  <require from="'./menu-item'"></require>
+  <require from="'../containers/logout-button'"></require>
+  <require from="'../assets/icons/home.html'"></require>
+  <require from="'../assets/icons/cart.html'"></require>
+  <require from="'../assets/icons/profile.html'"></require>
+  
+  <footer class.bind="containerClassName">
+    <div class.bind="innerContainerClassName">
+      <menu-item to="/">
+        <home/>
+        Home
+      </menu-item>
+      <menu-item to="/cart">
+        <cart/>
+        Cart
+      </menu-item>
+      <menu-item to="/profile">
+        <profile/>
+        Profile
+      </menu-item>
+      <logout-button/>
+    </div>
+  </footer>
+</template>
