@@ -1,25 +1,27 @@
 import {colors, unit} from '../styles';
 import {css} from "emotion";
+import {customElement} from 'aurelia-framework';
 
+@customElement('styled-footer')
 export class Footer {
   /**
    * STYLED COMPONENTS USED IN THIS FILE ARE BELOW HERE
    */
 
-  containerClassName = css`
+  containerClassName = css({
     flexShrink: 0,
     marginTop: 'auto',
     backgroundColor: 'white',
-    color: ${colors.textSecondary},
+    color: colors.textSecondary,
     position: 'sticky',
     bottom: 0,
-  `;
+  });
 
-  innerContainerClassName = css`
+  innerContainerClassName = css({
     display: 'flex',
     alignItems: 'center',
     maxWidth: 460,
-    padding: ${unit * 2.5},
+    padding: unit * 2.5,
     margin: '0 auto',
-  `;
+  });
 }

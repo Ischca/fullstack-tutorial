@@ -1,0 +1,14 @@
+<template>
+  <Loading if.bind="loading"/>
+  <p if.bind="error">ERROR: ${error.message}</p>
+  <template if.bind="!loading && !error">
+    <Header>My Cart</Header>
+    <p if.bind="!data || !!data && data.cartItems.length === 0"
+       data-testid="empty-message">No items in your cart</p>
+    <template else>
+      <CartItem repeat.for="launchId of data.cartItems"
+                key.bind="launchId" launchId.bind="launchId"/>
+      <BookTrips cartItems.bind="!!data ? data.cartItems : []"/>
+    </template>
+  </template>
+</template>

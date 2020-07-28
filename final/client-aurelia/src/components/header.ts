@@ -34,20 +34,20 @@ export class Header {
    * STYLED COMPONENTS USED IN THIS FILE ARE BELOW HERE
    */
 
-  containerClassName = css`
+  containerClassName = css({
     display: 'flex',
     alignItems: 'center',
     marginBottom: unit * 4.5,
-  `;
+  });
 
-  imageClassName = styled('img')(size(134), (props: { round: boolean }) => ({
+  imageClassName = css(size(134), {
     marginRight: unit * 2.5,
-    borderRadius: props.round ? '50%' : '0%',
-  }));
+    borderRadius: !this.image ? '50%' : '0%',
+  });
 
-  subheadingClassName = css`
+  subheadingClassName = css({
     marginTop: unit / 2,
     color: colors.textSecondary,
-  `;
+  });
 
 }

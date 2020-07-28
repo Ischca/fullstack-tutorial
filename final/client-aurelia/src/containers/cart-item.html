@@ -1,0 +1,7 @@
+<template>
+  <p if.bind="loading">Loading...</p>
+  <p if.bind="error">ERROR: ${error.message}</p>
+  <p if.bind="!data">Not found</p>
+  <LaunchTile if.bind="!loading && !error && data"
+              launch.bind="data.launch"/>
+</template>

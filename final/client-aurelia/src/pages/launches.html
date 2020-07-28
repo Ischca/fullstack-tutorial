@@ -1,0 +1,15 @@
+<template>
+  <Loading if.bind="loading"/>
+  <p if.bind="error">ERROR</p>
+  
+  <template if.bind="!loading && !error">
+    <Header/>
+    <LaunchTile repeat.for="launch of data.launches.launches"
+                key.bind="launch.id" launch.bind="launch"/>
+    <Button
+      if.bind="data.launches && data.launches.hasMore"
+      click.delegate="click()">
+      Load More
+    </Button>
+  </template>
+</template>

@@ -1,3 +1,14 @@
 <template>
-  <h1>${message}</h1>
+  <template if.bind="isLoggedIn">
+    <PageContainer>
+      <Router primary.bind=false>
+        <Launches path="/"/>
+        <Launch path="launch/:launchId"/>
+        <Cart path="cart"/>
+        <Profile path="profile"/>
+      </Router>
+    </PageContainer>
+    <styled-footer/>
+  </template>
+  <Login else></Login>
 </template>

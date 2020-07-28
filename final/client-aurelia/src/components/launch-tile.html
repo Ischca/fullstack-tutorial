@@ -1,0 +1,12 @@
+<template>
+  <Link
+    to.bind="`/launch/${id}`"
+    style.bind="{
+    backgroundImage: getBackgroundImage(id)
+    }"
+    class.bind="styledLinkClassName"
+  >
+  <h3>${mission ? mission.name : ''}</h3>
+  <h5>${rocket && rocket.name}</h5>
+  </Link>
+</template>

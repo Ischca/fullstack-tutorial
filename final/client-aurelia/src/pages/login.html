@@ -1,0 +1,6 @@
+<template>
+  <Loading if.bind="loading"/>
+  <p if.bind="error">An error occurred</p>
+  <LoginForm if.bind="!loading && !error"
+             login.bind="login"/>
+</template>

@@ -1,0 +1,26 @@
+<template>
+  <div class.bind="containerClassname">
+    <Header class.bind="headerClassName">
+      <StyledCurve class.bind="styledCurve"/>
+      <Logo class.bind="styledLogo"/>
+    </Header>
+    <StyledRocket class.bind="styledRocket"/>
+    <h1 class.bind="headingClassName">Space
+                                      Explorer
+    </h1>
+    <form class.bind="styledForm"
+          submit.delegate="onSubmit($event)">
+      <input
+        class.bind="styledInput"
+        required
+        type="email"
+        name="email"
+        placeholder="Email"
+        data - testid="login-input"
+        change.delegate="onChange($event)"/>
+      <Button
+        type="submit"> Log in
+      </Button>
+    </form>
+  </div>
+</template>
