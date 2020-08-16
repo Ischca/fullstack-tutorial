@@ -1,8 +1,7 @@
 import gql from 'graphql-tag';
 
 import {LAUNCH_TILE_DATA} from './launches';
-import {RouteComponentProps} from '@reach/router';
-import * as GetMyTripsTypes from './__generated__/GetMyTrips';
+import {RouteComponentProps} from '@reach/router/index';
 import {client} from "../app";
 
 export const GET_MY_TRIPS = gql`

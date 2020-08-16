@@ -1,14 +1,7 @@
 <template>
   <template if.bind="isLoggedIn">
-    <PageContainer>
-      <Router primary.bind=false>
-        <Launches path="/"/>
-        <Launch path="launch/:launchId"/>
-        <Cart path="cart"/>
-        <Profile path="profile"/>
-      </Router>
-    </PageContainer>
-    <styled-footer/>
+    <page-container></page-container>
+    <styled-footer></styled-footer>
   </template>
-  <Login else></Login>
+  <login else></login>
 </template>

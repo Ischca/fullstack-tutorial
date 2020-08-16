@@ -1,9 +1,9 @@
 import gql from 'graphql-tag';
 
-import {RouteComponentProps} from '@reach/router';
+import {RouteComponentProps} from '@reach/router/index';
 import * as GetLaunchListTypes from './__generated__/GetLaunchList';
 import {client} from "../app";
-import {ObservableQuery, OperationVariables} from "apollo-client";
+import {ObservableQuery} from "apollo-client";
 
 export const LAUNCH_TILE_DATA = gql`
   fragment LaunchTile on Launch {
@@ -52,7 +52,10 @@ export class Launches {
       .then(result => result.data)
       .then(data => this.data = data)
       .catch(e => this.error = e)
-      .finally(() => this.loading = false);
+      .finally(() => {
+        this.loading = false;
+        console.debug(!this.loading && !this.error);
+      });
   }
 
   click() {

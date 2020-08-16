@@ -3,8 +3,9 @@ import {ApolloClient} from "apollo-client";
 import {HttpLink} from "apollo-link-http";
 import {resolvers, typeDefs} from "./resolvers";
 import gql from "graphql-tag";
-import {Login} from "./pages/login";
 import injectStyles from "./styles";
+import {RouterConfiguration, Router} from 'aurelia-router';
+import {PLATFORM} from "aurelia-framework";
 
 // Set up our apollo-client to point at the server we created
 // this can be local or a remote endpoint
@@ -48,10 +49,25 @@ const IS_LOGGED_IN = gql`
 export class App {
   isLoggedIn;
 
+  router: Router;
+
   activate() {
     injectStyles();
     return client.query({query: IS_LOGGED_IN})
       .then(result => result.data)
       .then(data => this.isLoggedIn = data);
+  }
+
+  configureRouter(config: RouterConfiguration, router: Router): void {
+    this.router = router;
+    config.title = 'Aurelia';
+    config.options.pushState = true;
+    config.options.root = '/';
+    config.map([
+      {route: '', name: 'launches', moduleId: PLATFORM.moduleName('pages/launches')},
+      {route: 'launch/:launchId', name: 'launch', moduleId: PLATFORM.moduleName('pages/launch')},
+      {route: 'cart', name: 'cart', moduleId: PLATFORM.moduleName('pages/cart')},
+      {route: 'profile', name: 'profile', moduleId: PLATFORM.moduleName('pages/profile')},
+    ]);
   }
 }

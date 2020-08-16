@@ -1,9 +1,7 @@
 import gql from 'graphql-tag';
 
 import {LAUNCH_TILE_DATA} from './launches';
-import {ActionButton} from '../containers';
-import {RouteComponentProps} from '@reach/router';
-import * as LaunchDetailsTypes from './__generated__/LaunchDetails';
+import {RouteComponentProps} from '@reach/router/index';
 import {client} from "../app";
 
 export const GET_LAUNCH_DETAILS = gql`

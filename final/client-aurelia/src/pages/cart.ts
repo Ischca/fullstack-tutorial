@@ -1,7 +1,6 @@
 import gql from 'graphql-tag';
 
-import {CartItem, BookTrips} from '../containers';
-import {RouteComponentProps} from '@reach/router';
+import {RouteComponentProps} from '@reach/router/index';
 import {GetCartItems} from './__generated__/GetCartItems';
 import {client} from "../app";
 

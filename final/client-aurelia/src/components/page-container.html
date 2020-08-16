@@ -1,4 +1,6 @@
 <template>
   <div class.bind="barClassName"/>
-  <div class.bind="containerClassName">${props.children}</div>
+  <div class.bind="containerClassName">
+    <router-view></router-view>
+  </div>
 </template>
