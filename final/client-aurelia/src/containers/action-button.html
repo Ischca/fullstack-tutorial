@@ -3,7 +3,7 @@
   <p if.bind="error">An error occurred</p>
   
   <div if.bind="!loading && !error">
-    <Button
+    <styled-button
       click.delegate="click()"
       data-testid.bind="'action-button'">
       ${isBooked
@@ -11,6 +11,6 @@
       : isInCart
         ? 'Remove from Cart'
         : 'Add to Cart'}
-    </Button>
+    </styled-button>
   </div>
 </template>

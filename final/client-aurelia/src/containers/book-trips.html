@@ -1,9 +1,9 @@
 <template>
   <p if.bind="data && data.bookTrips && !data.bookTrips.success"
      data-testid="message">${data.bookTrips.message}</p>
-  <Button else
-          click.delegate="bookTrips()"
-          data-testid="book-button">
+  <styled-button else
+                 click.delegate="click()"
+                 data-testid="book-button">
     Book All
-  </Button>
+  </styled-button>
 </template>

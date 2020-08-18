@@ -1,6 +1,8 @@
 import {unit, colors} from '../styles';
 import {css} from "emotion";
+import {containerless} from "aurelia-framework";
 
+@containerless
 export class PageContainer {
   props: any;
   /**

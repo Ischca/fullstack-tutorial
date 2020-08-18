@@ -5,7 +5,7 @@ import dog1 from '../assets/images/dog-1.png';
 import dog2 from '../assets/images/dog-2.png';
 import dog3 from '../assets/images/dog-3.png';
 import {css} from "emotion";
-import {customElement} from "aurelia-framework";
+import {containerless, customElement} from "aurelia-framework";
 
 @customElement('styled-header')
 export class Header {

@@ -1,8 +1,11 @@
 import {MenuItem} from '../components/menu-item';
-import {ReactComponent as ExitIcon} from '../../../client/src/assets/icons/exit.svg';
 import {client} from "../app";
 import {css} from "emotion";
+import {autoinject} from "aurelia-framework";
+import {containerless} from "aurelia-framework";
 
+@autoinject
+@containerless
 export class LogoutButton {
   constructor(private menuItem: MenuItem) {
   }

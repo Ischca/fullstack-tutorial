@@ -1,12 +1,12 @@
 <template>
-  <Loading if.bind="loading"/>
+  <loading if.bind="loading"></loading>
   <p if.bind="error">ERROR: ${error.message}</p>
   <p if.bind="!data">Not found</p>
   <template if.bind="!loading && !error && data">
-    <Header image.bind="data.launch && data.launch.mission && data.launch.mission.missionPatch">
+    <styled-header image.bind="data.launch && data.launch.mission && data.launch.mission.missionPatch">
       ${data && data.launch && data.launch.mission && data.launch.mission.name}
-    </Header>
-    <LaunchDetail model.bind="data.launch"/>
-    <ActionButton model.bind="data.launch"/>
+    </styled-header>
+    <launch-detail launch.bind="data.launch"></launch-detail>
+    <action-button props.bind="data.launch"></action-button>
   </template>
 </template>

@@ -43,7 +43,7 @@ export class Launches {
   error;
   query: ObservableQuery<GetLaunchListTypes.GetLaunchList, GetLaunchListTypes.GetLaunchListVariables>;
 
-  activate(model: LaunchesProps) {
+  activate() {
     this.loading = true;
     this.query = client.watchQuery({
       query: GET_LAUNCHES
@@ -52,10 +52,7 @@ export class Launches {
       .then(result => result.data)
       .then(data => this.data = data)
       .catch(e => this.error = e)
-      .finally(() => {
-        this.loading = false;
-        console.debug(!this.loading && !this.error);
-      });
+      .finally(() => this.loading = false);
   }
 
   click() {

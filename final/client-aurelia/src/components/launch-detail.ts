@@ -2,23 +2,19 @@ import {unit} from '../styles';
 import {LaunchDetails_launch} from '../pages/__generated__/LaunchDetails';
 import {css} from "emotion";
 import {LaunchTile} from "./launch-tile";
-import {autoinject} from 'aurelia-framework';
+import {autoinject, bindable} from 'aurelia-framework';
 
 type LaunchDetailProps = Partial<LaunchDetails_launch>
 
 @autoinject
 export class LaunchDetail {
-  id;
-  site;
-  rocket;
+  @bindable
+  launch: LaunchDetailProps
 
   constructor(private launchTile: LaunchTile) {
   }
 
-  activate(model: LaunchDetailProps) {
-    this.id = model.id;
-    this.site = model.site;
-    this.rocket = model.rocket;
+  activate() {
   }
 
   /**

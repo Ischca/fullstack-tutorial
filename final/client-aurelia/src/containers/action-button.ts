@@ -1,9 +1,9 @@
 import gql from 'graphql-tag';
 
 import {GET_LAUNCH_DETAILS} from '../pages/launch';
-import {Button} from '../components/button';
 import * as LaunchDetailTypes from '../pages/__generated__/LaunchDetails';
 import {client} from "../app";
+import {bindable} from "aurelia-framework";
 
 // export all queries used in this file for testing
 export {GET_LAUNCH_DETAILS};
@@ -33,10 +33,10 @@ interface ActionButtonProps extends Partial<LaunchDetailTypes.LaunchDetails_laun
 export class ActionButton {
   loading: boolean;
   error: boolean;
+  @bindable
   props: ActionButtonProps;
 
-  activate(model: ActionButtonProps) {
-    this.props = model;
+  activate() {
   }
 
   click() {

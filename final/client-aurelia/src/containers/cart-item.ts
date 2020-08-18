@@ -1,9 +1,9 @@
 import gql from 'graphql-tag';
 
-import {LaunchTile} from '../components/launch-tile';
 import {LAUNCH_TILE_DATA} from '../pages/launches';
 import * as LaunchDetailTypes from '../pages/__generated__/LaunchDetails';
 import {client} from "../app";
+import {bindable} from "aurelia-framework";
 
 export const GET_LAUNCH = gql`
   query GetLaunch($launchId: ID!) {
@@ -21,12 +21,14 @@ export class CartItem {
   data: LaunchDetailTypes.LaunchDetails;
   loading;
   error;
+  @bindable
+  launchId;
 
-  activate(model: CartItemProps) {
+  activate() {
     this.loading = true;
-    client.query({
+    return client.query({
       query: GET_LAUNCH,
-      variables: {id: model.launchId}
+      variables: {launchId: this.launchId}
     })
       .then(result => result.data as LaunchDetailTypes.LaunchDetails)
       .then(data => {

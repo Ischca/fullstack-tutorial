@@ -1,28 +1,18 @@
-import {Link} from '@reach/router';
-
 import galaxy from '../assets/images/galaxy.jpg';
 import iss from '../assets/images/iss.jpg';
 import moon from '../assets/images/moon.jpg';
 import {unit} from '../styles';
 import * as LaunchTileTypes from '../pages/__generated__/LaunchTile';
 import {css} from "emotion";
-
-interface LaunchTileProps {
-  launch: LaunchTileTypes.LaunchTile;
-}
+import {bindable} from "aurelia-framework";
 
 export class LaunchTile {
-  id;
-  mission;
-  rocket;
+  @bindable
+  launch: LaunchTileTypes.LaunchTile;
 
   backgrounds = [galaxy, iss, moon];
 
-  activate(model: LaunchTileProps) {
-    let {id, mission, rocket} = model.launch;
-    this.id = id;
-    this.mission = mission;
-    this.rocket = rocket;
+  activate() {
   }
 
   getBackgroundImage(id: string) {

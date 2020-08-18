@@ -1,8 +1,12 @@
-import {Link} from '@reach/router';
 import {colors, unit} from '../styles';
 import {css} from "emotion";
+import {containerless, bindable} from "aurelia-framework";
 
+@containerless
 export class MenuItem {
+  @bindable
+  to;
+
   menuItemClassName = css({
     flexGrow: 1,
     width: 0,
@@ -20,7 +24,7 @@ export class MenuItem {
     },
   });
 
-  MenuItem = css(this.menuItemClassName, {
+  css = css(this.menuItemClassName, {
     textDecoration: 'none',
   });
 }

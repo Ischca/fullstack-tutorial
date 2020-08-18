@@ -1,6 +1,6 @@
 import {colors, unit} from '../styles';
 import {css} from "emotion";
-import {customElement} from 'aurelia-framework';
+import {containerless, customElement} from 'aurelia-framework';
 
 @customElement('styled-footer')
 export class Footer {

@@ -1,10 +1,10 @@
 import gql from 'graphql-tag';
 
-import {Button} from '../components/button';
 import {GET_LAUNCH} from './cart-item';
 import * as GetCartItemsTypes from '../pages/__generated__/GetCartItems';
 import * as BookTripsTypes from './__generated__/BookTrips';
 import {client} from "../app";
+import {bindable} from "aurelia-framework";
 
 export const BOOK_TRIPS = gql`
   mutation BookTrips($launchIds: [ID]!) {
@@ -25,10 +25,10 @@ interface BookTripsProps extends GetCartItemsTypes.GetCartItems {
 export class BookTrips {
   bookTrips;
   data: BookTripsTypes.BookTrips;
+  @bindable
   props: BookTripsProps;
 
-  activate(model: BookTripsProps) {
-    this.props = model;
+  activate() {
   }
 
   click() {

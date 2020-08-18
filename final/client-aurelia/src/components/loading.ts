@@ -1,6 +1,5 @@
 import {size} from 'polished';
 
-import {Logo} from '../assets/logo.svg';
 import {colors} from '../styles';
 import {css, keyframes} from "emotion";
 
@@ -18,7 +17,7 @@ export class Loading {
     fill: colors.grey,
     path: {
       transformOrigin: 'center',
-      animation: '${spin} 1s linear infinite',
+      animation: `${spin} 1s linear infinite`,
     },
   });
 }

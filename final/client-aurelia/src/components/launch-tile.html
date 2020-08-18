@@ -1,12 +1,11 @@
 <template>
-  <Link
-    to.bind="`/launch/${id}`"
-    style.bind="{
-    backgroundImage: getBackgroundImage(id)
+  <a href="/launch/${launch.id}"
+     style.bind="{
+    backgroundImage: getBackgroundImage(launch.id)
     }"
-    class.bind="styledLinkClassName"
+     class.bind="styledLinkClassName"
   >
-  <h3>${mission ? mission.name : ''}</h3>
-  <h5>${rocket && rocket.name}</h5>
-  </Link>
+    <h3>${launch.mission ? launch.mission.name : ''}</h3>
+    <h5>${launch.rocket && launch.rocket.name}</h5>
+  </a>
 </template>

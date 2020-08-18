@@ -1,13 +1,13 @@
 <template>
   <div
     style.bind="{
-    'background-image': launchTile.getBackgroundImage(id)
+    'background-image': launchTile.getBackgroundImage(launch.id)
     }"
     class.bind="styledCardClassName"
   >
     <h3>
-      ${rocket && rocket.name} (${rocket && rocket.type})
+      ${launch.rocket && launch.rocket.name} (${launch.rocket && launch.rocket.type})
     </h3>
-    <h5>${site}</h5>
+    <h5>${launch.site}</h5>
   </div>
 </template>

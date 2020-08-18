@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 import {LAUNCH_TILE_DATA} from './launches';
-import {RouteComponentProps} from '@reach/router/index';
 import {client} from "../app";
+import {containerless} from "aurelia-framework";
 
 export const GET_LAUNCH_DETAILS = gql`
   query LaunchDetails($launchId: ID!) {
@@ -18,19 +18,29 @@ export const GET_LAUNCH_DETAILS = gql`
   ${LAUNCH_TILE_DATA}
 `;
 
-interface LaunchProps extends RouteComponentProps {
+interface LaunchProps {
   launchId?: any;
 }
 
+@containerless
 export class Launch {
   data;
   loading;
   error;
 
   activate(model: LaunchProps) {
-    client.query({
+    this.loading = true;
+    return client.query({
       query: GET_LAUNCH_DETAILS,
-      variables: {id: model.launchId}
-    });
+      variables: {launchId: model.launchId}
+    })
+      .then(result => {
+        this.data = result.data;
+      })
+      .catch(e => {
+        this.error = e;
+        console.error(e)
+      })
+      .finally(() => this.loading = false);
   }
 }

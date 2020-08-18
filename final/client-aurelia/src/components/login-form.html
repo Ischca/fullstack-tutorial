@@ -1,10 +1,10 @@
 <template>
   <div class.bind="containerClassname">
-    <Header class.bind="headerClassName">
-      <StyledCurve class.bind="styledCurve"/>
-      <Logo class.bind="styledLogo"/>
-    </Header>
-    <StyledRocket class.bind="styledRocket"/>
+    <header class.bind="headerClassName">
+      <curve class.bind="styledCurve"></curve>
+      <logo class.bind="styledLogo"></logo>
+    </header>
+    <rocket class.bind="styledRocket"></rocket>
     <h1 class.bind="headingClassName">Space
                                       Explorer
     </h1>
@@ -18,9 +18,9 @@
         placeholder="Email"
         data - testid="login-input"
         change.delegate="onChange($event)"/>
-      <Button
+      <stylec-button
         type="submit"> Log in
-      </Button>
+      </stylec-button>
     </form>
   </div>
 </template>

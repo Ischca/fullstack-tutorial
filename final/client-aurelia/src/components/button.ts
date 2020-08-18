@@ -1,7 +1,7 @@
 import {css} from "emotion";
 import {unit, colors} from '../styles';
 import {lighten} from "polished";
-import {customElement} from "aurelia-framework";
+import {containerless, customElement} from "aurelia-framework";
 
 @customElement('styled-button')
 export class Button {
